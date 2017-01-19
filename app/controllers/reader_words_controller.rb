@@ -10,7 +10,8 @@ class ReaderWordsController < ApplicationController
   end
 
   def index
-    @reader_words = ReaderWord.page(params[:page]).per(10)
+    @q = ReaderWord.ransack(params[:q])
+    @reader_words = @q.result(:distinct => true).includes(:reader, :word, :reader_readings).page(params[:page]).per(10)
 
     render("reader_words/index.html.erb")
   end

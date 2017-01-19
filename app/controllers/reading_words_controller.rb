@@ -1,6 +1,7 @@
 class ReadingWordsController < ApplicationController
   def index
-    @reading_words = ReadingWord.page(params[:page]).per(10)
+    @q = ReadingWord.ransack(params[:q])
+    @reading_words = @q.result(:distinct => true).includes(:word, :reading).page(params[:page]).per(10)
 
     render("reading_words/index.html.erb")
   end
