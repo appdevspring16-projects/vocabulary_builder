@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Reader</dt>
-      <dd><%= @reader_reading.reader_id %></dd>
+      <dd>
+        <% if @reader_reading.reader.present? %>
+          <a href="/readers/<%= @reader_reading.reader_id %>">
+            <%= @reader_reading.reader.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Reading</dt>
-      <dd><%= @reader_reading.reading_id %></dd>
+      <dd>
+        <% if @reader_reading.reading.present? %>
+          <a href="/readings/<%= @reader_reading.reading_id %>">
+            <%= @reader_reading.reading.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

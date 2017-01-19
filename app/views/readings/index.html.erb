@@ -20,7 +20,13 @@
       <tr>
         <td><%= reading.title %></td>
         <td><%= reading.more_information_url %></td>
-        <td><%= reading.author.name %></td>
+        <td>
+          <% if reading.author.present? %>
+            <a href="/authors/<%= reading.author.id %>">
+              <%= reading.author.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= reading.description %></td>
         <td>
           <a href="/readings/<%= reading.id %>" class="btn btn-primary">Show</a>

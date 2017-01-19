@@ -12,7 +12,13 @@
       <dd><%= @reading.more_information_url %></dd>
 
       <dt>Author</dt>
-      <dd><%= @reading.author_id %></dd>
+      <dd>
+        <% if @reading.author.present? %>
+          <a href="/authors/<%= @reading.author_id %>">
+            <%= @reading.author.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Description</dt>
       <dd><%= @reading.description %></dd>

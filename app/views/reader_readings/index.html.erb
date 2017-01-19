@@ -16,8 +16,20 @@
 
       <% @reader_readings.each do |reader_reading| %>
       <tr>
-        <td><%= reader_reading.reader.email %></td>
-        <td><%= reader_reading.reading.title %></td>
+        <td>
+          <% if reader_reading.reader.present? %>
+            <a href="/readers/<%= reader_reading.reader.id %>">
+              <%= reader_reading.reader.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if reader_reading.reading.present? %>
+            <a href="/readings/<%= reader_reading.reading.id %>">
+              <%= reader_reading.reading.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/reader_readings/<%= reader_reading.id %>" class="btn btn-primary">Show</a>
           <a href="/reader_readings/<%= reader_reading.id %>/edit" class="btn btn-warning">Edit</a>

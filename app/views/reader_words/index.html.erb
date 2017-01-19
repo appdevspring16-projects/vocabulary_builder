@@ -19,9 +19,27 @@
 
       <% @reader_words.each do |reader_word| %>
       <tr>
-        <td><%= reader_word.reader.email %></td>
-        <td><%= reader_word.word.word %></td>
-        <td><%= reader_word.reader_readings.reader_id %></td>
+        <td>
+          <% if reader_word.reader.present? %>
+            <a href="/readers/<%= reader_word.reader.id %>">
+              <%= reader_word.reader.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if reader_word.word.present? %>
+            <a href="/words/<%= reader_word.word.id %>">
+              <%= reader_word.word.word %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if reader_word.reader_readings.present? %>
+            <a href="/reader_readings/<%= reader_word.reader_readings.id %>">
+              <%= reader_word.reader_readings.reader_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= reader_word.context %></td>
         <td><%= reader_word.favorite %></td>
         <td>
