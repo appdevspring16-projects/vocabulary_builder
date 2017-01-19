@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Reader Word #<%= @reader_word.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Reader</dt>
+      <dd><%= @reader_word.reader_id %></dd>
+
+      <dt>Word</dt>
+      <dd><%= @reader_word.word_id %></dd>
+
+      <dt>Reader readings</dt>
+      <dd><%= @reader_word.reader_readings_id %></dd>
+
+      <dt>Context</dt>
+      <dd><%= @reader_word.context %></dd>
+
+      <dt>Favorite</dt>
+      <dd><%= @reader_word.favorite %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/reader_words" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/reader_words/<%= @reader_word.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_reader_word/<%= @reader_word.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

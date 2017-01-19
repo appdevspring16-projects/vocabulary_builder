@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @reader_word.errors.any? %>
+  <% @reader_word.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Reader Word</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_reader_word" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for reader_id -->
+      <div class="form-group">
+        <label for="reader_id" class="control-label">
+          Reader
+        </label>
+
+        <input type="text" id="reader_id" name="reader_id" placeholder="Reader" class="form-control" value="<%= @reader_word.reader_id %>">
+      </div>
+
+      <!-- Label and input for word_id -->
+      <div class="form-group">
+        <label for="word_id" class="control-label">
+          Word
+        </label>
+
+        <input type="text" id="word_id" name="word_id" placeholder="Word" class="form-control" value="<%= @reader_word.word_id %>">
+      </div>
+
+      <!-- Label and input for reader_readings_id -->
+      <div class="form-group">
+        <label for="reader_readings_id" class="control-label">
+          Reader readings
+        </label>
+
+        <input type="text" id="reader_readings_id" name="reader_readings_id" placeholder="Reader readings" class="form-control" value="<%= @reader_word.reader_readings_id %>">
+      </div>
+
+      <!-- Label and input for context -->
+      <div class="form-group">
+        <label for="context" class="control-label">
+          Context
+        </label>
+
+        <textarea id="context" name="context" placeholder="Context" class="form-control" rows="3"><%= @reader_word.context %></textarea>
+      </div>
+
+      <!-- Label and input for favorite -->
+      <div class="form-group">
+        <label for="favorite" class="control-label">
+          Favorite
+        </label>
+
+        <input type="text" id="favorite" name="favorite" placeholder="Favorite" class="form-control" value="<%= @reader_word.favorite %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Reader Word
+      </button>
+      or
+      <a href="/reader_words">Cancel</a>
+    </form>
+  </div>
+</div>

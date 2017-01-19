@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Reader_word resource:
+  # CREATE
+  get "/reader_words/new", :controller => "reader_words", :action => "new"
+  post "/create_reader_word", :controller => "reader_words", :action => "create"
+
+  # READ
+  get "/reader_words", :controller => "reader_words", :action => "index"
+  get "/reader_words/:id", :controller => "reader_words", :action => "show"
+
+  # UPDATE
+  get "/reader_words/:id/edit", :controller => "reader_words", :action => "edit"
+  post "/update_reader_word/:id", :controller => "reader_words", :action => "update"
+
+  # DELETE
+  get "/delete_reader_word/:id", :controller => "reader_words", :action => "destroy"
+  #------------------------------
+
   # Routes for the Word resource:
   # CREATE
   get "/words/new", :controller => "words", :action => "new"
