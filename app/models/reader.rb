@@ -1,6 +1,9 @@
 class Reader < ApplicationRecord
   # Direct associations
 
+  has_many   :reader_readings,
+             :dependent => :destroy
+
   has_many   :reader_words,
              :dependent => :destroy
 
