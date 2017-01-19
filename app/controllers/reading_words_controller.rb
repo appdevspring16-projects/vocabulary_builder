@@ -1,6 +1,6 @@
 class ReadingWordsController < ApplicationController
   def index
-    @reading_words = ReadingWord.all
+    @reading_words = ReadingWord.page(params[:page]).per(10)
 
     render("reading_words/index.html.erb")
   end

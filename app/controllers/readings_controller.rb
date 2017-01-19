@@ -1,6 +1,6 @@
 class ReadingsController < ApplicationController
   def index
-    @readings = Reading.all
+    @readings = Reading.page(params[:page]).per(10)
 
     render("readings/index.html.erb")
   end

@@ -10,7 +10,7 @@ class ReaderWordsController < ApplicationController
   end
 
   def index
-    @reader_words = ReaderWord.all
+    @reader_words = ReaderWord.page(params[:page]).per(10)
 
     render("reader_words/index.html.erb")
   end

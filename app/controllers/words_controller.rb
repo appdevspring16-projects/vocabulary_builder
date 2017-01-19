@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.all
+    @words = Word.page(params[:page]).per(10)
 
     render("words/index.html.erb")
   end

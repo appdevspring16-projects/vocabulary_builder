@@ -1,6 +1,6 @@
 class ReadersController < ApplicationController
   def index
-    @readers = Reader.all
+    @readers = Reader.page(params[:page]).per(10)
   end
 
   def show
