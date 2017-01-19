@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "words#index"
   # Routes for the Author resource:
   # CREATE
   get "/authors/new", :controller => "authors", :action => "new"
