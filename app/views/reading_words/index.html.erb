@@ -17,7 +17,7 @@
       <% @reading_words.each do |reading_word| %>
       <tr>
         <td><%= reading_word.word.word %></td>
-        <td><%= reading_word.reading_id %></td>
+        <td><%= reading_word.reading.title %></td>
         <td>
           <a href="/reading_words/<%= reading_word.id %>" class="btn btn-primary">Show</a>
           <a href="/reading_words/<%= reading_word.id %>/edit" class="btn btn-warning">Edit</a>
