@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Reader has many reader_words -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Reader Words
+      </li>
+
+      <% @reader.reader_words.each do |reader_word| %>
+        <li class="list-group-item">
+          <a href="/reader_words/<%= reader_word.id %>">
+            <%= reader_word.reader_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/reader_words/<%= reader_word.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/reader_words/<%= reader_word.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_reader_word/<%= reader_word.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Reader has many reader_readings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Reader Readings
+      </li>
+
+      <% @reader.reader_readings.each do |reader_reading| %>
+        <li class="list-group-item">
+          <a href="/reader_readings/<%= reader_reading.id %>">
+            <%= reader_reading.reader_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/reader_readings/<%= reader_reading.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/reader_readings/<%= reader_reading.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_reader_reading/<%= reader_reading.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
