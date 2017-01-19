@@ -57,6 +57,50 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_reader_word" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for reader_id -->
+      <input type="hidden" name="reader_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for word_id -->
+      <input type="hidden" name="word_id" value="<%= @word.id %>">
+
+      <!-- Label and input for reader_readings_id -->
+      <div class="form-group">
+        <label for="reader_readings_id" class="control-label">
+          Reader readings
+        </label>
+
+        <%= select_tag(:reader_readings_id, options_from_collection_for_select(ReaderReading.all, :id, :reader_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for context -->
+      <div class="form-group">
+        <label for="context" class="control-label">
+          Context
+        </label>
+
+        <textarea id="context" name="context" placeholder="Context" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for favorite -->
+      <div class="form-group">
+        <label for="favorite" class="control-label">
+          Favorite
+        </label>
+
+        <input type="text" id="favorite" name="favorite" placeholder="Favorite" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Reader Word
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -88,6 +132,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_reading_word" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for word_id -->
+      <input type="hidden" name="word_id" value="<%= @word.id %>">
+
+      <!-- Label and input for reading_id -->
+      <div class="form-group">
+        <label for="reading_id" class="control-label">
+          Reading
+        </label>
+
+        <%= select_tag(:reading_id, options_from_collection_for_select(Reading.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Reading Word
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

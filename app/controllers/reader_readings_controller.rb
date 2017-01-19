@@ -6,6 +6,7 @@ class ReaderReadingsController < ApplicationController
   end
 
   def show
+    @reader_word = ReaderWord.new
     @reader_reading = ReaderReading.find(params[:id])
 
     render("reader_readings/show.html.erb")
