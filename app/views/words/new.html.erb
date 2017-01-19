@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @word.errors.any? %>
+  <% @word.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Word</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_word" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for word -->
+      <div class="form-group">
+        <label for="word" class="control-label">
+          Word
+        </label>
+
+        <input type="text" id="word" name="word" placeholder="Word" class="form-control" value="<%= @word.word %>">
+      </div>
+
+      <!-- Label and input for language -->
+      <div class="form-group">
+        <label for="language" class="control-label">
+          Language
+        </label>
+
+        <input type="text" id="language" name="language" placeholder="Language" class="form-control" value="<%= @word.language %>">
+      </div>
+
+      <!-- Label and input for definition -->
+      <div class="form-group">
+        <label for="definition" class="control-label">
+          Definition
+        </label>
+
+        <textarea id="definition" name="definition" placeholder="Definition" class="form-control" rows="3"><%= @word.definition %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Word
+      </button>
+      or
+      <a href="/words">Cancel</a>
+    </form>
+  </div>
+</div>

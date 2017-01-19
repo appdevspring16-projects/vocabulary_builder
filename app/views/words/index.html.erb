@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Words
+    <a href="/words/new" class="btn btn-lg btn-success">New Word</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Word</th>
+        <th>Language</th>
+        <th>Definition</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @words.each do |word| %>
+      <tr>
+        <td><%= word.word %></td>
+        <td><%= word.language %></td>
+        <td><%= word.definition %></td>
+        <td>
+          <a href="/words/<%= word.id %>" class="btn btn-primary">Show</a>
+          <a href="/words/<%= word.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_word/<%= word.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
