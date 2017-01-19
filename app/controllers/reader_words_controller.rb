@@ -50,8 +50,6 @@ class ReaderWordsController < ApplicationController
 
   def update
     @reader_word = ReaderWord.find(params[:id])
-
-    @reader_word.reader_id = params[:reader_id]
     @reader_word.word_id = params[:word_id]
     @reader_word.reader_readings_id = params[:reader_readings_id]
     @reader_word.context = params[:context]
