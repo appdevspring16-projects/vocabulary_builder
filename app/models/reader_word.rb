@@ -5,4 +5,6 @@ class ReaderWord < ApplicationRecord
 
   # Validations
 
+  validates :word_id, :presence => true
+
 end
