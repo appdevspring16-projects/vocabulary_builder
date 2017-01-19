@@ -24,7 +24,7 @@
           Word
         </label>
 
-        <input type="text" id="word_id" name="word_id" placeholder="Word" class="form-control" value="<%= @reading_word.word_id %>">
+        <%= select_tag(:word_id, options_from_collection_for_select(Word.all, :id, :word, @reading_word.word_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for reading_id -->
