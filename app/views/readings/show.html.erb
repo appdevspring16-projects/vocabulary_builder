@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Reading #<%= @reading.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Title</dt>
+      <dd><%= @reading.title %></dd>
+
+      <dt>More information url</dt>
+      <dd><%= @reading.more_information_url %></dd>
+
+      <dt>Author</dt>
+      <dd><%= @reading.author_id %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @reading.description %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/readings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/readings/<%= @reading.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_reading/<%= @reading.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
