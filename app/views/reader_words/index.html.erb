@@ -26,8 +26,11 @@
         <td><%= reader_word.favorite %></td>
         <td>
           <a href="/reader_words/<%= reader_word.id %>" class="btn btn-primary">Show</a>
-          <a href="/reader_words/<%= reader_word.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_reader_word/<%= reader_word.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == reader_word.reader %>
+            <a href="/reader_words/<%= reader_word.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_reader_word/<%= reader_word.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

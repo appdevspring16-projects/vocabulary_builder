@@ -1,4 +1,14 @@
 class ReaderWordsController < ApplicationController
+  before_action :current_user_must_be_reader_word_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_reader_word_reader
+    reader_word = ReaderWord.find(params[:id])
+
+    unless current_user == reader_word.reader
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @reader_words = ReaderWord.all
 
