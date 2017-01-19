@@ -24,7 +24,7 @@
           Reader
         </label>
 
-        <input type="text" id="reader_id" name="reader_id" placeholder="Reader" class="form-control" value="<%= @reader_reading.reader_id %>">
+        <%= select_tag(:reader_id, options_from_collection_for_select(Reader.all, :id, :email, @reader_reading.reader_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for reading_id -->
