@@ -16,7 +16,7 @@
 
       <% @reader_readings.each do |reader_reading| %>
       <tr>
-        <td><%= reader_reading.reader_id %></td>
+        <td><%= reader_reading.reader.email %></td>
         <td><%= reader_reading.reading_id %></td>
         <td>
           <a href="/reader_readings/<%= reader_reading.id %>" class="btn btn-primary">Show</a>
