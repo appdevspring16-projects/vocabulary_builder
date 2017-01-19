@@ -1,5 +1,7 @@
 ActiveAdmin.register Reading do
 
+ permit_params :title, :more_information_url, :author_id, :description
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
