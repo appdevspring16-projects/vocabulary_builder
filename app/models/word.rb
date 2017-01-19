@@ -1,6 +1,9 @@
 class Word < ApplicationRecord
   # Direct associations
 
+  has_many   :reader_words,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

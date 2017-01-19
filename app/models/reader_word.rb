@@ -1,6 +1,8 @@
 class ReaderWord < ApplicationRecord
   # Direct associations
 
+  belongs_to :word
+
   belongs_to :reader
 
   # Indirect associations
