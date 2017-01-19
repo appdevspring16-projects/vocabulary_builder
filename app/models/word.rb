@@ -5,4 +5,6 @@ class Word < ApplicationRecord
 
   # Validations
 
+  validates :word, :presence => true
+
 end
