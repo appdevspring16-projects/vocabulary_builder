@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Reading_word resource:
+  # CREATE
+  get "/reading_words/new", :controller => "reading_words", :action => "new"
+  post "/create_reading_word", :controller => "reading_words", :action => "create"
+
+  # READ
+  get "/reading_words", :controller => "reading_words", :action => "index"
+  get "/reading_words/:id", :controller => "reading_words", :action => "show"
+
+  # UPDATE
+  get "/reading_words/:id/edit", :controller => "reading_words", :action => "edit"
+  post "/update_reading_word/:id", :controller => "reading_words", :action => "update"
+
+  # DELETE
+  get "/delete_reading_word/:id", :controller => "reading_words", :action => "destroy"
+  #------------------------------
+
   # Routes for the Reading resource:
   # CREATE
   get "/readings/new", :controller => "readings", :action => "new"

@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Reading words
+    <a href="/reading_words/new" class="btn btn-lg btn-success">New Reading word</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Word</th>
+        <th>Reading</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @reading_words.each do |reading_word| %>
+      <tr>
+        <td><%= reading_word.word_id %></td>
+        <td><%= reading_word.reading_id %></td>
+        <td>
+          <a href="/reading_words/<%= reading_word.id %>" class="btn btn-primary">Show</a>
+          <a href="/reading_words/<%= reading_word.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_reading_word/<%= reading_word.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
