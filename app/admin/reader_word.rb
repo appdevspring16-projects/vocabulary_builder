@@ -1,5 +1,7 @@
 ActiveAdmin.register ReaderWord do
 
+ permit_params :reader_id, :word_id, :reader_readings_id, :context, :favorite
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
